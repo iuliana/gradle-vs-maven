@@ -6,6 +6,8 @@ This repository contains the following:
 * parent-maven - a multi-module with three level organization Maven project
 * parent-gradle - a multi-module with three level organization Gradle project
 
+**!!! **Use branch *feature/two-levels* for the same projects with two levels.
+
 == Purpose
 If you have doubts about using Maven or Gradle in your project, this short presentation and the attached projects might
 help you make a decision.
