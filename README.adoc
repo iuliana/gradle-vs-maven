@@ -1,0 +1,46 @@
+== Gradle vs. Maven
+
+This repository contains the following:
+
+* The_Presentation.pptx - a few slides comparing Gradle to maven and other Java build tools.
+* parent-maven - a multi-module with three level organization Maven project
+* parent-gradle - a multi-module with three level organization Gradle project
+
+== Purpose
+If you have doubts about using Maven or Gradle in your project, this short presentation and the attached projects might
+help you make a decision.
+
+If you need a starting template for a multi-module, multi-level project you might find this toy projects useful as well.
+
+If you have any ideas on how I could improve these projects send me an email or create an issue.
+
+== Building and Deploying
+=== Gradle
+----
+gradle clean build
+----
+
+Build it without tests using:
+----
+gradle build -x test 
+----
+
+Generate JavaDoc
+----
+gradle aggregateJavadoc
+----
+JavaDoc found at: *parent-gradle/build/docs/javadoc/*
+
+=== Maven
+----
+maven clean install
+----
+Build it without tests using:
+----
+mvn install -DskipTests
+----
+Generate JavaDoc
+----
+mvn site
+----
+JavaDoc found at: *parent-maven/target/site/apidocs/*

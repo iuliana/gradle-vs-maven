@@ -1,0 +1,20 @@
+subprojects {
+    apply plugin: 'java'
+
+
+    dependencies {
+        compile  misc.slf4jJcl, misc.logback
+        testCompile misc.junit
+    }
+
+    jar {
+        manifest {
+            attributes(
+                    "Created-By": System.getProperty('java.version'),
+                    "Specification-Title": "Sample project for RS",
+                    "Implementation-Version": version,
+                    "Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+            )
+        }
+    }
+}

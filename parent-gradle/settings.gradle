@@ -1,0 +1,19 @@
+rootProject.name = 'parent-gradle'
+include 'child-01'
+    include 'child-01:grand-child-01-01'
+    include 'child-01:grand-child-01-02'
+include 'child-02'
+    include 'child-02:grand-child-02-01'
+    include 'child-02:grand-child-02-02'
+
+println('This is a multi-module Gradle sample project.' +
+        '\n [parent-gradle], [child-01], [child-02] are modules used strictly for organizational purpose.' +
+        '\n They do not get compiled into artifacts.')
+
+//we check if the modules have gradle configuration files named as themselves - again - for organizational purposes
+rootProject.children.each { project ->
+    project.buildFileName = "${project.name}.gradle"
+    assert project.projectDir.isDirectory()
+    assert project.buildFile.exists()
+    assert project.buildFile.isFile()
+}

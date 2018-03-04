@@ -1,0 +1,41 @@
+ext {
+    //logging libs
+    slf4jVersion = '1.7.25'
+    logbackVersion = '1.2.3'
+
+    //testing libs
+    junitVersion = '4.12'
+
+    misc = [
+            slf4jJcl: "org.slf4j:jcl-over-slf4j:$slf4jVersion",
+            logback : "ch.qos.logback:logback-classic:$logbackVersion",
+            junit   : "junit:junit:$junitVersion"
+    ]
+}
+
+allprojects {
+    group 'com.sample'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+buildscript {
+    repositories { jcenter() }
+
+    dependencies {
+        classpath 'com.netflix.nebula:gradle-aggregate-javadocs-plugin:2.2.+'
+    }
+}
+apply plugin: 'nebula-aggregate-javadocs'
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.5-rc-1'
+}
