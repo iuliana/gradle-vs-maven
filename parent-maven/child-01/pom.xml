@@ -10,10 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>child-01</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>grand-child-01-01</module>
-        <module>grand-child-01-02</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
